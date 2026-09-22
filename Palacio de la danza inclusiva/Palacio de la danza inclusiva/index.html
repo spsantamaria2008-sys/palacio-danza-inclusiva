@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Palacio de la Danza Inclusiva | CEMA 🏰</title>
+    <style>
+        body { 
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+            background: linear-gradient(180deg, #f8f0ff 0%, #fff 100%);
+            color: #2d1b4e; 
+            margin: 0; 
+            padding: 0; 
+        }
+        html { scroll-behavior: smooth; }
+        .contenedor { max-width: 820px; margin: 0 auto; padding: 25px; }
+        
+        header { 
+            background: linear-gradient(135deg, #1a0a2e, #4a1c6b); 
+            color: #fff; 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 8px dashed #c9a0ff; 
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 8px 20px rgba(108, 45, 199, 0.3);
+        }
+        header h1 { 
+            font-size: 28px; 
+            margin: 0 0 12px 0; 
+            text-shadow: 3px 3px 0 #6c2dc7;
+            letter-spacing: 1px;
+        }
+        header .autoras { 
+            margin-top: 14px; 
+            font-size: 13px; 
+            color: #e0b0ff; 
+            font-weight: bold; 
+            line-height: 1.5;
+        }
+        header .asesores { 
+            font-size: 13px; 
+            margin-top: 14px; 
+            color: #d4b5ff; 
+            font-weight: bold; 
+            border-top: 2px dashed #c9a0ff; 
+            padding-top: 12px; 
+        }
+
+        nav { 
+            background: linear-gradient(90deg, #6c2dc7, #9b4de0); 
+            text-align: center; 
+            padding: 12px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin: 0 10px; 
+            font-size: 13px; 
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        nav a:hover { transform: scale(1.1); }
+
+        .bloque { 
+            padding: 35px 10px; 
+            border-bottom: 4px dotted #c9a0ff; 
+            display: block; 
+            clear: both; 
+        }
+        .bloque h2 { 
+            font-size: 22px; 
+            color: #6c2dc7; 
+            margin-bottom: 18px;
+            text-shadow: 1px 1px 0 #e0b0ff;
+        }
+
+        .caja { 
+            border: 3px solid #6c2dc7; 
+            padding: 18px; 
+            margin-bottom: 16px; 
+            border-radius: 18px; 
+            background: #fff;
+            box-shadow: 4px 4px 0 #e8d5ff;
+        }
+        .caja-video { 
+            border: 3px solid #6c2dc7; 
+            padding: 18px; 
+            margin-bottom: 18px; 
+            border-radius: 22px; 
+            background: linear-gradient(145deg, #f8f0ff, #efe0ff); 
+            text-align: center;
+            box-shadow: 4px 4px 0 #d4b5ff;
+        }
+        .caja-pegar-link { 
+            width: 90%; 
+            max-width: 420px; 
+            padding: 12px; 
+            margin: 12px auto; 
+            border: 3px solid #6c2dc7; 
+            border-radius: 14px; 
+            font-family: inherit; 
+            font-size: 14px; 
+            display: block; 
+            text-align: center; 
+            background: #ffffff;
+            box-shadow: inset 0 0 8px #e8d5ff;
+        }
+
+        .btn-real { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #6c2dc7, #9b4de0); 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 13px 28px; 
+            font-weight: bold; 
+            border-radius: 16px; 
+            border: 3px solid #2d1b4e; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            margin-top: 8px; 
+            cursor: pointer; 
+            text-align: center;
+            box-shadow: 3px 3px 0 #2d1b4e;
+            transition: all 0.2s;
+        }
+        .btn-real:hover {
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0 #2d1b4e;
+        }
+
+        .tablero { 
+            background: linear-gradient(145deg, #f8f0ff, #efe0ff); 
+            border: 4px dashed #6c2dc7; 
+            padding: 24px; 
+            border-radius: 24px;
+            box-shadow: 5px 5px 0 #d4b5ff;
+        }
+        .campo { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 12px; 
+            border: 3px solid #6c2dc7; 
+            border-radius: 14px; 
+            box-sizing: border-box; 
+            font-family: inherit;
+            background: #fff;
+        }
+        .comentario { 
+            background: #fff; 
+            border: 3px solid #6c2dc7; 
+            border-left: 10px solid #c9a0ff; 
+            padding: 18px; 
+            border-radius: 18px; 
+            margin-top: 16px; 
+            box-shadow: 3px 3px 8px rgba(108,45,199,0.15);
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 25px; 
+            background: linear-gradient(135deg, #1a0a2e, #4a1c6b); 
+            color: #e0b0ff; 
+            font-size: 13px;
+            border-top: 6px dashed #c9a0ff;
+        }
+
+        .corona {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="corona">👑🏰👑</span>
+        <h1>✨ El Palacio de la Danza Inclusiva ✨</h1>
+        <div class="autoras">
+            <strong>👑 Elenco Real de Investigadoras del Reino CEMA:</strong><br>
+            Princesa Limas Galeano Valentina &nbsp;|&nbsp; 
+            Princesa Martínez Castaño Isabella &nbsp;|&nbsp; 
+            Princesa Molina Castillo Elizabeth Kinara<br>
+            Princesa Parra Santamaría Lina Sofía &nbsp;|&nbsp; 
+            Princesa Santos Morales Sara Sofía
+        </div>
+        <div class="asesores">
+            <strong>📜 Guardianes Reales del Palacio:</strong><br>
+            Maestro Edgar Alfonso Romero Rincón &nbsp;•&nbsp; Maestra Diana Nathaly Cuervo Vargas
+        </div>
+    </header>
+
+    <nav>
+        <a href="#sec-quienes">👑 Elenco Real</a>
+        <a href="#sec-dinamica">🎶 La Proclama</a>
+        <a href="#sec-videos">🎁 Cofre de Videos</a>
+        <a href="#sec-piar">🧩 Reino PIAR</a>
+        <a href="#sec-muro">📜 Muro de Cartas</a>
+    </nav>
+
+    <div class="contenedor">
+
+        <!-- 1. QUIENES SOMOS -->
+        <div id="sec-quienes" class="bloque">
+            <h2>👑 Conoce al Elenco Real del Palacio</h2>
+            <div class="caja">
+                <p>
+                    ¡Bienvenidos al majestuoso <strong>Palacio de la Danza Inclusiva</strong>!  
+                    Somos las cinco princesas investigadoras de la corte del <strong>Colegio Estrada de María Auxiliadora (CEMA)</strong>.  
+                    Este reino digital guarda los recuerdos mágicos de cómo el ritmo de la cumbia y los bailes folclóricos liberan las tensiones del corazón de todos los príncipes y princesas de la escuela… ¡sin importar cómo se muevan!
+                </p>
+                <p style="margin-top:12px; text-align:center; font-size:22px;">
+                    🧚‍♀️ 👑 🏰 👑 🧚‍♀️
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. DINAMICA -->
+        <div id="sec-dinamica" class="bloque">
+            <h2>🎶 La Proclama Real del Baile Mágico</h2>
+            <div class="caja" style="border-left: 10px solid #c9a0ff;">
+                <h3>📜 Decreto Real de Inclusión</h3>
+                <p>
+                    ¡Escuchad, habitantes del reino!  
+                    En este palacio <strong>todos</strong> los príncipes y princesas pueden bailar juntos bajo las estrellas.  
+                    Las polleras brillantes, los tambores y las pañoletas abrazan con magia cada diferencia.  
+                    No importa si bailamos con los pies, con los brazos, con la silla de ruedas o con el corazón…  
+                    <strong>¡cada movimiento es una estrella que ilumina el gran baile del castillo!</strong> ✨
+                </p>
+                <p style="text-align:center; font-size:20px; margin-top:15px;">
+                    🕺👑💃 • ♿ • 🧠 • ❤️ • ✨
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. EL COFRE DE LOS RECUERDOS REALES (VIDEOS) -->
+        <div id="sec-videos" class="bloque">
+            <h2>🎁 El Cofre de los Recuerdos Reales (Videos)</h2>
+            <p style="margin-bottom:18px; font-size:14px; text-align:center;">
+                👑 <em>Princesas del Elenco Real:</em> aquí están los tesoros audiovisuales del taller.  
+                Haz clic en cada botón para abrir la reliquia.
+            </p>
+            
+            <p><strong>📜 Módulo 1: Las Raíces del Reino</strong></p>
+            <div class="caja-video">
+                <h4>🎥 Reliquia 1: Preguntas sobre la Tradición (Patio del Castillo)</h4>
+                <input type="text" id="linkVideo1" class="caja-pegar-link" value="https://youtu.be/9syQmUMLOns?si=lFA9_kkNJbWrHyFg">
+                <button type="button" class="btn-real" onclick="abrirLinkReal(1)">🔓 Abrir Reliquia 1</button>
+            </div>
+            
+            <div class="caja-video">
+                <h4>🎥 Reliquia 2: La Explicación de las Raíces Antiguas</h4>
+                <input type="text" id="linkVideo2" class="caja-pegar-link" value="https://youtu.be/a1Gs_A5-_t8?si=zhM3lm-Ig09wursw">
+                <button type="button" class="btn-real" onclick="abrirLinkReal(2)">🔓 Abrir Reliquia 2</button>
+            </div>
+
+            <p><strong>💃 Módulo 2: La Coreografía del Reino</strong></p>
+            <div class="caja-video">
+                <h4>🎥 Reliquia 3: Filas y Trenes Inclusivos del Palacio</h4>
+                <input type="text" id="linkVideo3" class="caja-pegar-link" value="https://youtu.be/mHtrHvisnZE?si=z2G747J7dPK5xCur">
+                <button type="button" class="btn-real" onclick="abrirLinkReal(3)">🔓 Abrir Reliquia 3</button>
+            </div>
+
+            <p><strong>🗣️ Módulo 3: Voces de la Corte (Testimonios)</strong></p>
+            <div class="caja-video">
+                <h4>🎥 Reliquia 4: Testimonio Real de un Príncipe / Princesa</h4>
+                <input type="text" id="linkVideo4" class="caja-pegar-link" value="https://youtube.com/shorts/eMNzFOtkDT8?si=GWZ1mkihupP9WJ8y">
+                <button type="button" class="btn-real" onclick="abrirLinkReal(4)">🔓 Abrir Reliquia 4</button>
+            </div>
+            
+            <div class="caja-video">
+                <h4>🎥 Reliquia 5: Segundo Testimonio del Reino</h4>
+                <input type="text" id="linkVideo5" class="caja-pegar-link" value="https://youtube.com/shorts/diAuXvOGvkI?si=mqg36szyCERAppKC">
+                <button type="button" class="btn-real" onclick="abrirLinkReal(5)">🔓 Abrir Reliquia 5</button>
+            </div>
+            
+            <div class="caja-video">
+                <h4>🎥 Reliquia 6: Tercer Testimonio Real</h4>
+                <input type="text" id="linkVideo6" class="caja-pegar-link" value="https://youtube.com/shorts/GEmBzfs35xQ?si=5f944ffRy71w6YoN">
+                <button type="button" class="btn-real" onclick="abrirLinkReal(6)">🔓 Abrir Reliquia 6</button>
+            </div>
+        </div>
+
+        <!-- 4. EL REINO DE LA INCLUSIÓN (ZONA PIAR) -->
+        <div id="sec-piar" class="bloque">
+            <h2>🧩 El Reino de la Inclusión (Zona PIAR)</h2>
+            <p style="margin-bottom:18px; font-size:14px;">
+                En este reino existen cuatro grandes familias de la corte. Cada una tiene su propia magia y su forma especial de bailar:
+            </p>
+
+            <div class="caja">
+                <h3>♿ 1. Familia de la Movilidad Real (Discapacidad Física y Motora)</h3>
+                <p>
+                    Príncipes y princesas cuya marcha o equilibrio son diferentes.  
+                    <strong>Magia dancística:</strong> Usan el torso, los brazos, las pañoletas y el ritmo con las manos.  
+                    ¡Las sillas de ruedas se convierten en carrozas reales!
+                </p>
+            </div>
+
+            <div class="caja">
+                <h3>🧠 2. Familia de la Mente Brillante (Discapacidad Intelectual y Cognitiva)</h3>
+                <p>
+                    Príncipes y princesas que procesan el mundo a su propio ritmo.  
+                    <strong>Magia dancística:</strong> Secuencias cortas, pausadas y con muchas repeticiones rítmicas para que todos brillen.
+                </p>
+            </div>
+
+            <div class="caja">
+                <h3>⚡ 3. Familia de las Estrellas del Neurodesarrollo</h3>
+                <p>
+                    Príncipes y princesas con TDAH, Autismo u otras formas de brillar.  
+                    <strong>Magia dancística:</strong> Instrucciones claras y cortas, movimientos dinámicos y control suave de los sonidos del patio.
+                </p>
+            </div>
+
+            <div class="caja">
+                <h3>❤️ 4. Familia del Corazón del Reino (Psicosocial y Emocional)</h3>
+                <p>
+                    Príncipes y princesas que a veces sienten nubes de tensión o tristeza.  
+                    <strong>Magia dancística:</strong> Bailes en grupo que elevan la autoestima y llenan el castillo de abrazos invisibles.
+                </p>
+            </div>
+        </div>
+
+        <!-- 5. EL MURO DE LAS CARTAS REALES -->
+        <div id="sec-muro" class="bloque">
+            <h2>📜 El Muro de las Cartas Reales</h2>
+            <div class="tablero">
+                <h3>💌 Escribe tu Carta Real:</h3>
+                <br>
+                <input type="text" id="autorTxt" class="campo" placeholder="Tu nombre de Palacio (Ej: Princesa Diana, Príncipe Juan, Jurado Real...)">
+                <textarea id="conclusionTxt" class="campo" rows="3" placeholder="Querida corte del Palacio... escribe aquí tu mensaje, opinión o felicitación..."></textarea>
+                
+                <button type="button" class="btn-real" style="width: 100%; display: block;" onclick="agregarComentarioClasico()">
+                    🌟 ENVIAR CARTA AL MURO REAL
+                </button>
+                <br><br>
+                <h3>📌 Cartas ya recibidas en el Muro:</h3>
+                <div id="contenedorLista"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        🏰 © Colegio Estrada de María Auxiliadora (CEMA)<br>
+        Proyecto Real: <strong>Danza Inclusiva</strong> — Un reino donde todos bailan ✨<br>
+        <span style="font-size:18px;">👑 🧚‍♀️ 💃 🕺 ♿ 🧠 ❤️ 👑</span>
+    </footer>
+
+    <script>
+        function abrirLinkReal(numero) {
+            const input = document.getElementById('linkVideo' + numero);
+            let url = input.value.trim();
+
+            if (!url || url === 'https://youtu.be' || url === 'https://youtube.com') {
+                alert('👑 ¡Oh no! El cofre está vacío.\nPor favor pega un enlace completo de YouTube.');
+                return;
+            }
+
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+
+            window.open(url, '_blank');
+        }
+
+        function agregarComentarioClasico() {
+            const autor = document.getElementById('autorTxt').value.trim();
+            const mensaje = document.getElementById('conclusionTxt').value.trim();
+
+            if (!autor || !mensaje) {
+                alert('👑 ¡Atención, noble visitante!\nDebes escribir tu nombre y tu carta real.');
+                return;
+            }
+
+            const contenedor = document.getElementById('contenedorLista');
+            const div = document.createElement('div');
+            div.className = 'comentario';
+            div.innerHTML = `<strong>👑 ${autor}</strong><br>${mensaje}`;
+            
+            contenedor.prepend(div);
+            guardarComentarios();
+
+            document.getElementById('autorTxt').value = '';
+            document.getElementById('conclusionTxt').value = '';
+        }
+
+        function guardarComentarios() {
+            const contenedor = document.getElementById('contenedorLista');
+            localStorage.setItem('muroDanzaCEMA', contenedor.innerHTML);
+        }
+
+        function cargarComentarios() {
+            document.getElementById('contenedorLista').innerHTML = '';
+        }
+
+        window.onload = cargarComentarios;
+    </script>
+
+</body>
+</html>
